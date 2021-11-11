@@ -29,15 +29,18 @@ public class UserHelper extends HelperBase {
         click(By.cssSelector("#logout-submit"));
 
     }
-    public boolean isLogged()  {
-        return wd.findElements(By.cssSelector("[data-test-id='header-member-menu-button']")).size()>0;
+
+    public boolean isLogged() {
+        return wd.findElements(By.cssSelector("[data-test-id='header-member-menu-button']")).size() > 0;
 
     }
+
     public boolean isLoggedSuccess() {
         WebDriverWait wait = new WebDriverWait(wd, 10);
         wait.until(ExpectedConditions.visibilityOf(wd.findElement(By.cssSelector("._9Bfh6AVH84yAZe"))));
         return wd.findElement(By.cssSelector("._9Bfh6AVH84yAZe")).isDisplayed();
     }
+
     public void submitLogin() {
         click(By.id("login-submit"));
     }
@@ -50,13 +53,23 @@ public class UserHelper extends HelperBase {
     }
 
     public void fillLoginForm(User user) throws InterruptedException {
-        type(By.cssSelector("#user"),user.getEmail() );
+        type(By.cssSelector("#user"), user.getEmail());
         Thread.sleep(2000);
         click(By.cssSelector("#login"));
-        type(By.name("password"),user.getPassword() );
+        type(By.name("password"), user.getPassword());
     }
+
     public void initLogin() {
         click(By.cssSelector("[href='/login']"));
     }
+
+
+    public void clickOnLoginButton() {
+        if (isElementPresent(By.cssSelector("#login"))) {
+            click(By.cssSelector("#login"));
+        }
+    }
+
 }
+
 

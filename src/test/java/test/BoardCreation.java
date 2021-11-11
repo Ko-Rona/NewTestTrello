@@ -12,8 +12,8 @@ public class BoardCreation extends TestBase {
         Board board = new Board().withTitle("test");
         //int bordCountBeforeCreation = app.getBoard().getBordCount();
         app.getBoard().initBoardCreationfromHeader();
-        //app.getBoard().fillBoardCreationForm("test");
-        app.getBoard().fillBoardCreationForm(board);
+        app.getBoard().fillBoardCreationForm("test");
+        //app.getBoard().fillBoardCreationForm(board);
         app.getBoard().isSubmitionConfirmed();
         app.getBoard().submitBoardCreation();
         app.getBoard().isCreated();
@@ -21,7 +21,7 @@ public class BoardCreation extends TestBase {
         //int bordCountAfterCreation = app.getBoard().getBordCount();
 
         //Assert.assertEquals(bordCountBeforeCreation, bordCountAfterCreation + 1);
-        Assert.assertTrue(app.getBoard().isCreated());
+        //Assert.assertTrue(app.getBoard().isCreated());
 
     }
 }
